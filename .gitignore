@@ -4,3 +4,9 @@
 /android/
 /build/
 /Makefile
+*.d
+*.o
+*.so
+*~
+c
+

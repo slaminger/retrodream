@@ -17,5 +17,6 @@ int emu_keydown(struct emu *emu, int port, int key, int16_t value);
 int emu_load(struct emu *emu, const char *path);
 void emu_debug_menu(struct emu *emu);
 void emu_render_frame(struct emu *emu);
+uint8_t * emu_get_memory_ptr(struct emu *emu);
 
 #endif

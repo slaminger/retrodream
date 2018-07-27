@@ -22,6 +22,7 @@
 #include "guest/dreamcast.h"
 #include "guest/gdrom/gdrom.h"
 #include "guest/holly/holly.h"
+#include "guest/memory.h"
 #include "guest/maple/maple.h"
 #include "guest/pvr/pvr.h"
 #include "guest/pvr/ta.h"
@@ -781,3 +782,19 @@ struct emu *emu_create(struct host *host) {
 
   return emu;
 }
+
+uint8_t * emu_get_memory_ptr(struct emu *emu) {
+  if ( !emu ) {
+    return NULL ;
+  }
+  if ( !emu->dc ) {
+    return NULL ;
+  }
+  if ( !emu->dc->mem ) {
+    return NULL ;
+  }
+
+  return mem_ram(emu->dc->mem,0);
+
+}
+
