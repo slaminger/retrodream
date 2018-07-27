@@ -327,9 +327,23 @@ unsigned retro_get_region() {
 }
 
 void *retro_get_memory_data(unsigned id) {
-  return NULL;
+  if ( ! g_host ) {
+    return NULL ;
+  }
+  if ( !g_host->emu ) {
+    return NULL ;
+  }
+
+  if ( id != RETRO_MEMORY_SYSTEM_RAM ) {
+    return NULL ;
+  }
+  return emu_get_memory_ptr(g_host->emu);
 }
 
 size_t retro_get_memory_size(unsigned id) {
-  return 0;
+  if ( id == RETRO_MEMORY_SYSTEM_RAM ) {
+    //from guest/memory.c
+    return 16*1024*1024;
+  }
+  return 0 ;
 }
