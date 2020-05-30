@@ -212,7 +212,7 @@ unsigned retro_api_version() {
 }
 
 void retro_get_system_info(struct retro_system_info *info) {
-  info->library_name = "redream";
+  info->library_name = "RetroDream";
   info->library_version = "0.0";
   info->valid_extensions = "cdi|chd|gdi";
   info->need_fullpath = true;
