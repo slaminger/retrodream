@@ -74,7 +74,7 @@ else ifeq ($(ARCH), $(filter $(ARCH), arm))
    WITH_DYNAREC = arm
 endif
 
-TARGET_NAME := redream
+TARGET_NAME := retrodream
 
 CC_AS ?= $(CC)
 
