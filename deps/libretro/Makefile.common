@@ -16,7 +16,6 @@ SOURCES_C := $(CORE_DIR)/src/core/assert.c \
 	$(CORE_DIR)/src/core/list.c \
 	$(CORE_DIR)/src/core/log.c \
 	$(CORE_DIR)/src/core/md5.c \
-	$(CORE_DIR)/src/core/ringbuf.c \
 	$(CORE_DIR)/src/core/rb_tree.c \
 	$(CORE_DIR)/src/core/sort.c \
 	$(CORE_DIR)/src/core/profiler.c \
@@ -83,7 +82,9 @@ SOURCES_C := $(CORE_DIR)/src/core/assert.c \
 	$(CORE_DIR)/src/host/retro_host.c \
 	$(CORE_DIR)/src/emulator.c \
 	$(CORE_DIR)/src/options.c \
-	$(CORE_DIR)/src/stats.c \
+	$(CORE_DIR)/src/stats.c 
+ifneq ($(STATIC_LINKING), 1)
+SOURCES_C += 
 	$(CORE_DIR)/src/libretro-common/rthreads/rthreads.c \
 	$(CORE_DIR)/src/libretro-common/file/file_path.c \
 	$(CORE_DIR)/src/libretro-common/compat/compat_strl.c \
@@ -91,6 +92,7 @@ SOURCES_C := $(CORE_DIR)/src/core/assert.c \
 	$(CORE_DIR)/src/libretro-common/vfs/vfs_implementation.c \
 	$(CORE_DIR)/src/libretro-common/encodings/encoding_utf.c \
 	$(CORE_DIR)/src/libretro-common/compat/fopen_utf8.c
+endif
 
 ifeq ($(USE_GL1), 1)
 ifeq ($(USE_GL2), 1)
