@@ -112,10 +112,10 @@ struct memory_watch *add_single_write_watch(const void *ptr, size_t size,
   uintptr_t aligned_begin = ALIGN_DOWN((uintptr_t)ptr, page_size);
   uintptr_t aligned_end = ALIGN_UP((uintptr_t)ptr + size, page_size) - 1;
   size_t aligned_size = (aligned_end - aligned_begin) + 1;
-
+#ifndef VITA
   /* disable writing to the pages */
   CHECK(protect_pages((void *)aligned_begin, aligned_size, ACC_READONLY));
-
+#endif
   /* allocate new access watch */
   struct memory_watch *watch =
       list_first_entry(&watcher->free_watches, struct memory_watch, list_it);
