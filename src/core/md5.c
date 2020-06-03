@@ -69,7 +69,7 @@
  * memory accesses is just an optimization.  Nothing will break if it
  * doesn't work.
  */
-#if defined(__i386__) || defined(__x86_64__) || defined(__vax__)
+#if defined(__i386__) || defined(__x86_64__) || defined(__vax__) || defined(VITA)
 #define SET(n) (*(MD5_u32plus *)&ptr[(n)*4])
 #define GET(n) SET(n)
 #else
@@ -191,7 +191,7 @@ static void *body(MD5_CTX *ctx, void *data, unsigned long size) {
   return ptr;
 }
 
-void MD5_Init(MD5_CTX *ctx) {
+void _MD5_Init(MD5_CTX *ctx) {
   ctx->a = 0x67452301;
   ctx->b = 0xefcdab89;
   ctx->c = 0x98badcfe;
@@ -201,7 +201,7 @@ void MD5_Init(MD5_CTX *ctx) {
   ctx->hi = 0;
 }
 
-void MD5_Update(MD5_CTX *ctx, void *data, unsigned long size) {
+void _MD5_Update(MD5_CTX *ctx, void *data, unsigned long size) {
   MD5_u32plus saved_lo;
   unsigned long used, free;
 
@@ -234,7 +234,7 @@ void MD5_Update(MD5_CTX *ctx, void *data, unsigned long size) {
   memcpy(ctx->buffer, data, size);
 }
 
-void MD5_Final(char *result, MD5_CTX *ctx) {
+void _MD5_Final(char *result, MD5_CTX *ctx) {
   unsigned long used, free;
 
   used = ctx->lo & 0x3f;
