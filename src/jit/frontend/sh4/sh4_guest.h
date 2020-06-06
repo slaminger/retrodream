@@ -155,7 +155,7 @@ static inline void sh4_explode_sr(struct sh4_context *ctx) {
   ctx->sr_t = (ctx->sr & T_MASK) >> T_BIT;
   ctx->sr_s = (ctx->sr & S_MASK) >> S_BIT;
   ctx->sr_m = (ctx->sr & M_MASK) >> M_BIT;
-  ctx->sr_qm = (sr_q == ctx->sr_m) << 31;
+  ctx->sr_qm = sr_q == ctx->sr_m ? 0x80000000 : 0;
 }
 
 /*
