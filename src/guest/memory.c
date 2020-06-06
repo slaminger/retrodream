@@ -392,7 +392,7 @@ int arm7_init(struct memory *mem) {
 
   as_map(mem, space, ARM7_AICA_MEM_BEGIN, ARM7_AICA_MEM_SIZE, MAP_ARAM, NULL,
          NULL, NULL, NULL);
-  as_map(mem, space, ARM7_AICA_REG_BEGIN, ARM7_AICA_MEM_SIZE, MAP_MMIO,
+  as_map(mem, space, ARM7_AICA_REG_BEGIN, ARM7_AICA_REG_SIZE, MAP_MMIO,
          (mmio_read_cb)&arm7_mem_read, (mmio_write_cb)&arm7_mem_write, NULL,
          NULL);
 
