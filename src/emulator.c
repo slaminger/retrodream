@@ -34,11 +34,12 @@
 #include "options.h"
 #include "render/render_backend.h"
 #include "stats.h"
+#include "rthreads/rthreads.h"
 
 enum {
   ASPECT_RATIO_STRETCH,
   ASPECT_RATIO_16BY9,
-  ASPECT_RATIO_4BY3,
+  ASPECT_RATIO_4BY3
 };
 
 /* emulation thread state */
@@ -47,13 +48,13 @@ enum {
   EMU_WAITING,
   EMU_RUNFRAME,
   EMU_DRAWFRAME,
-  EMU_ENDFRAME,
+  EMU_ENDFRAME
 };
 
 enum {
   EMU_SOURCE_NONE,
   EMU_SOURCE_CTX,
-  EMU_SOURCE_PXL,
+  EMU_SOURCE_PXL
 };
 
 struct emu_framebuffer {
@@ -176,6 +177,7 @@ static void emu_dirty_modified_textures(struct emu *emu) {
   list_clear(&emu->modified_textures);
 }
 
+#if defined(NDEBUG) && !defined(VITA)
 static void emu_texture_modified(const struct exception_state *ex, void *data) {
   struct emu_texture *tex = data;
   tex->texture_watch = NULL;
@@ -195,6 +197,7 @@ static void emu_palette_modified(const struct exception_state *ex, void *data) {
     tex->modified = 1;
   }
 }
+#endif
 
 static void emu_free_texture(struct emu *emu, struct emu_texture *tex) {
   /* remove from live tree */
@@ -472,7 +475,7 @@ static void emu_set_aspect_ratio(struct emu *emu, const char *new_ratio) {
  */
 static void emu_run_until_vblank(struct emu *emu);
 
-static void *emu_run_thread(void *data) {
+static void emu_run_thread(void *data) {
   struct emu *emu = data;
 
   while (1) {
@@ -494,8 +497,6 @@ static void *emu_run_thread(void *data) {
 
     slock_unlock(emu->req_mutex);
   }
-
-  return NULL;
 }
 
 static void emu_run_until_vblank(struct emu *emu) {
@@ -727,8 +728,7 @@ void emu_destroy(struct emu *emu) {
     scond_signal(emu->req_cond);
     slock_unlock(emu->req_mutex);
 
-    void *result;
-    sthread_join(emu->run_thread, &result);
+    sthread_join(emu->run_thread);
 
     slock_free(emu->req_mutex);
     scond_free(emu->req_cond);

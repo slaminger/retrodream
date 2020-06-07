@@ -1,6 +1,8 @@
 #ifndef THREAD_H
 #define THREAD_H
 
+#include "rthreads/rthreads.h"
+
 /*
  * threads
  */
@@ -13,7 +15,7 @@ void thread_join(thread_t thread, void **result);
 /*
  * synchronization
  */
-typedef void *mutex_t;
+typedef slock_t *mutex_t;
 
 mutex_t mutex_create();
 int mutex_trylock(mutex_t mutex);
@@ -21,7 +23,7 @@ void mutex_lock(mutex_t mutex);
 void mutex_unlock(mutex_t mutex);
 void mutex_destroy(mutex_t mutex);
 
-typedef void *cond_t;
+typedef scond_t *cond_t;
 
 cond_t cond_create();
 void cond_wait(cond_t cond, mutex_t mutex);

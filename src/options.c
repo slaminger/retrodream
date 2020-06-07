@@ -75,43 +75,43 @@ int *DEADZONES[] = {
 };
 
 /* host */
-DEFINE_OPTION_INT(bios,                    0,                 "Boot to bios");
-DEFINE_PERSISTENT_OPTION_STRING(sync,      "audio and video", "Time sync");
-DEFINE_PERSISTENT_OPTION_INT(fullscreen,   0,                 "Start window fullscreen");
-DEFINE_PERSISTENT_OPTION_INT(key_a,        'l',               "A button mapping");
-DEFINE_PERSISTENT_OPTION_INT(key_b,        'p',               "B button mapping");
-DEFINE_PERSISTENT_OPTION_INT(key_x,        'k',               "X button mapping");
-DEFINE_PERSISTENT_OPTION_INT(key_y,        'o',               "Y button mapping");
-DEFINE_PERSISTENT_OPTION_INT(key_start,    ' ',               "Start button mapping");
-DEFINE_PERSISTENT_OPTION_INT(key_dup,      't',               "DPAD Up mapping");
-DEFINE_PERSISTENT_OPTION_INT(key_ddown,    'g',               "DPAD Down mapping");
-DEFINE_PERSISTENT_OPTION_INT(key_dleft,    'f',               "DPAD Left mapping");
-DEFINE_PERSISTENT_OPTION_INT(key_dright,   'h',               "DPAD Right mapping");
-DEFINE_PERSISTENT_OPTION_INT(key_joyx_neg, 'a',               "Joystick -X axis mapping");
-DEFINE_PERSISTENT_OPTION_INT(key_joyx_pos, 'd',               "Joystick +X axis mapping");
-DEFINE_PERSISTENT_OPTION_INT(key_joyy_neg, 'w',               "Joystick -Y axis mapping");
-DEFINE_PERSISTENT_OPTION_INT(key_joyy_pos, 's',               "Joystick +Y axis mapping");
-DEFINE_PERSISTENT_OPTION_INT(key_ltrig,    '[',               "Left trigger mapping");
-DEFINE_PERSISTENT_OPTION_INT(key_rtrig,    ']',               "Right trigger mapping");
+DEFINE_OPTION_INT(bios,                    0,                 "Boot to bios")
+DEFINE_PERSISTENT_OPTION_STRING(sync,      "audio and video", "Time sync")
+DEFINE_PERSISTENT_OPTION_INT(fullscreen,   0,                 "Start window fullscreen")
+DEFINE_PERSISTENT_OPTION_INT(key_a,        'l',               "A button mapping")
+DEFINE_PERSISTENT_OPTION_INT(key_b,        'p',               "B button mapping")
+DEFINE_PERSISTENT_OPTION_INT(key_x,        'k',               "X button mapping")
+DEFINE_PERSISTENT_OPTION_INT(key_y,        'o',               "Y button mapping")
+DEFINE_PERSISTENT_OPTION_INT(key_start,    ' ',               "Start button mapping")
+DEFINE_PERSISTENT_OPTION_INT(key_dup,      't',               "DPAD Up mapping")
+DEFINE_PERSISTENT_OPTION_INT(key_ddown,    'g',               "DPAD Down mapping")
+DEFINE_PERSISTENT_OPTION_INT(key_dleft,    'f',               "DPAD Left mapping")
+DEFINE_PERSISTENT_OPTION_INT(key_dright,   'h',               "DPAD Right mapping")
+DEFINE_PERSISTENT_OPTION_INT(key_joyx_neg, 'a',               "Joystick -X axis mapping")
+DEFINE_PERSISTENT_OPTION_INT(key_joyx_pos, 'd',               "Joystick +X axis mapping")
+DEFINE_PERSISTENT_OPTION_INT(key_joyy_neg, 'w',               "Joystick -Y axis mapping")
+DEFINE_PERSISTENT_OPTION_INT(key_joyy_pos, 's',               "Joystick +Y axis mapping")
+DEFINE_PERSISTENT_OPTION_INT(key_ltrig,    '[',               "Left trigger mapping")
+DEFINE_PERSISTENT_OPTION_INT(key_rtrig,    ']',               "Right trigger mapping")
 
-DEFINE_PERSISTENT_OPTION_INT(deadzone_0,   DEFAULT_DEADZONE,  "Deadzone for controller on port 0");
-DEFINE_PERSISTENT_OPTION_INT(deadzone_1,   DEFAULT_DEADZONE,  "Deadzone for controller on port 1");
-DEFINE_PERSISTENT_OPTION_INT(deadzone_2,   DEFAULT_DEADZONE,  "Deadzone for controller on port 2");
-DEFINE_PERSISTENT_OPTION_INT(deadzone_3,   DEFAULT_DEADZONE,  "Deadzone for controller on port 3");
+DEFINE_PERSISTENT_OPTION_INT(deadzone_0,   DEFAULT_DEADZONE,  "Deadzone for controller on port 0")
+DEFINE_PERSISTENT_OPTION_INT(deadzone_1,   DEFAULT_DEADZONE,  "Deadzone for controller on port 1")
+DEFINE_PERSISTENT_OPTION_INT(deadzone_2,   DEFAULT_DEADZONE,  "Deadzone for controller on port 2")
+DEFINE_PERSISTENT_OPTION_INT(deadzone_3,   DEFAULT_DEADZONE,  "Deadzone for controller on port 3")
 
 /* emulator */
-DEFINE_PERSISTENT_OPTION_STRING(aspect,    "4:3",             "Video aspect ratio");
+DEFINE_PERSISTENT_OPTION_STRING(aspect,    "4:3",             "Video aspect ratio")
 
 /* bios */
-DEFINE_PERSISTENT_OPTION_STRING(region,    "usa",             "System region");
-DEFINE_PERSISTENT_OPTION_STRING(language,  "english",         "System language");
-DEFINE_PERSISTENT_OPTION_STRING(broadcast, "ntsc",            "System broadcast mode");
+DEFINE_PERSISTENT_OPTION_STRING(region,    "usa",             "System region")
+DEFINE_PERSISTENT_OPTION_STRING(language,  "english",         "System language")
+DEFINE_PERSISTENT_OPTION_STRING(broadcast, "ntsc",            "System broadcast mode")
 
 /* jit */
-DEFINE_OPTION_INT(perf,                    0,                 "Create maps for compiled code for use with perf");
+DEFINE_OPTION_INT(perf,                    0,                 "Create maps for compiled code for use with perf")
 
 /* ui */
-DEFINE_PERSISTENT_OPTION_STRING(gamedir,   "",                "Directories to scan for games");
+DEFINE_PERSISTENT_OPTION_STRING(gamedir,   "",                "Directories to scan for games")
 
 /* clang-format on */
 
