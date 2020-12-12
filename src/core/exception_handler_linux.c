@@ -27,23 +27,23 @@ static inline void copy_state_to(mcontext_t *src, struct thread_state *dst) {
   dst->fpsr = simd->fpsr;
   dst->fpcr = simd->fpcr;
 #elif ARCH_X64
-  dst->rax = src->gregs[REG_RAX];
-  dst->rcx = src->gregs[REG_RCX];
-  dst->rdx = src->gregs[REG_RDX];
-  dst->rbx = src->gregs[REG_RBX];
-  dst->rsp = src->gregs[REG_RSP];
-  dst->rbp = src->gregs[REG_RBP];
-  dst->rsi = src->gregs[REG_RSI];
-  dst->rdi = src->gregs[REG_RDI];
-  dst->r8 = src->gregs[REG_R8];
-  dst->r9 = src->gregs[REG_R9];
-  dst->r10 = src->gregs[REG_R10];
-  dst->r11 = src->gregs[REG_R11];
-  dst->r12 = src->gregs[REG_R12];
-  dst->r13 = src->gregs[REG_R13];
-  dst->r14 = src->gregs[REG_R14];
-  dst->r15 = src->gregs[REG_R15];
-  dst->rip = src->gregs[REG_RIP];
+  dst->rax = src->regs[REG_RAX];
+  dst->rcx = src->regs[REG_RCX];
+  dst->rdx = src->regs[REG_RDX];
+  dst->rbx = src->regs[REG_RBX];
+  dst->rsp = src->regs[REG_RSP];
+  dst->rbp = src->regs[REG_RBP];
+  dst->rsi = src->regs[REG_RSI];
+  dst->rdi = src->regs[REG_RDI];
+  dst->r8 = src->regs[REG_R8];
+  dst->r9 = src->regs[REG_R9];
+  dst->r10 = src->regs[REG_R10];
+  dst->r11 = src->regs[REG_R11];
+  dst->r12 = src->regs[REG_R12];
+  dst->r13 = src->regs[REG_R13];
+  dst->r14 = src->regs[REG_R14];
+  dst->r15 = src->regs[REG_R15];
+  dst->rip = src->regs[REG_RIP];
 #endif
 }
 
@@ -68,23 +68,23 @@ static inline void copy_state_from(struct thread_state *src, mcontext_t *dst) {
   simd->fpsr = src->fpsr;
   simd->fpcr = src->fpcr;
 #elif ARCH_X64
-  dst->gregs[REG_RAX] = src->rax;
-  dst->gregs[REG_RCX] = src->rcx;
-  dst->gregs[REG_RDX] = src->rdx;
-  dst->gregs[REG_RBX] = src->rbx;
-  dst->gregs[REG_RSP] = src->rsp;
-  dst->gregs[REG_RBP] = src->rbp;
-  dst->gregs[REG_RSI] = src->rsi;
-  dst->gregs[REG_RDI] = src->rdi;
-  dst->gregs[REG_R8] = src->r8;
-  dst->gregs[REG_R9] = src->r9;
-  dst->gregs[REG_R10] = src->r10;
-  dst->gregs[REG_R11] = src->r11;
-  dst->gregs[REG_R12] = src->r12;
-  dst->gregs[REG_R13] = src->r13;
-  dst->gregs[REG_R14] = src->r14;
-  dst->gregs[REG_R15] = src->r15;
-  dst->gregs[REG_RIP] = src->rip;
+  dst->regs[REG_RAX] = src->rax;
+  dst->regs[REG_RCX] = src->rcx;
+  dst->regs[REG_RDX] = src->rdx;
+  dst->regs[REG_RBX] = src->rbx;
+  dst->regs[REG_RSP] = src->rsp;
+  dst->regs[REG_RBP] = src->rbp;
+  dst->regs[REG_RSI] = src->rsi;
+  dst->regs[REG_RDI] = src->rdi;
+  dst->regs[REG_R8] = src->r8;
+  dst->regs[REG_R9] = src->r9;
+  dst->regs[REG_R10] = src->r10;
+  dst->regs[REG_R11] = src->r11;
+  dst->regs[REG_R12] = src->r12;
+  dst->regs[REG_R13] = src->r13;
+  dst->regs[REG_R14] = src->r14;
+  dst->regs[REG_R15] = src->r15;
+  dst->regs[REG_RIP] = src->rip;
 #endif
 }
 
